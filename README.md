@@ -14,5 +14,9 @@ How to create REST crud API using spring-boot
 # Steps
 To read more details step to use this repository and the guide to implement REST api, please go to my blog https://betterjavacode.com/2017/03/14/how-to-spring-boot-crud-rest-api/
 
+# To run the REST API using browser 
+ 1. http://localhost:8080/benefits/v1/users/ 
+ 2. http://localhost:8080/benefits/v1/companies/
+ 
 # Questions
 If you have any questions, you can contact me at betterjavacode DOT com AT gmail DOT com
