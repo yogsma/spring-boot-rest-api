@@ -12,7 +12,9 @@ How to create REST crud API using spring-boot
 4. Maven 3.0 or higher
 
 # Steps
-To read more details step to use this repository and the guide to implement REST api, please go to my blog https://betterjavacode.com/2017/03/14/how-to-spring-boot-crud-rest-api/
+To read more details step to use this repository and the guide to implement REST api, please go to my blog
+1. https://betterjavacode.com/2017/03/14/how-to-spring-boot-crud-rest-api/
+2. https://betterjavacode.com/2017/03/18/swagger-documentation-for-spring-boot-rest-api-part-ii/
 
 # To run the REST API using browser 
  1. http://localhost:8080/benefits/v1/users/ 
