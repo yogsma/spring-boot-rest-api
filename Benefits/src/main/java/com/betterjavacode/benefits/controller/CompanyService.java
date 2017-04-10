@@ -6,12 +6,14 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.betterjavacode.benefits.entities.Company;
 import com.betterjavacode.benefits.interfaces.CompanyManager;
+import com.betterjavacode.benefits.models.UserModel;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -27,7 +29,7 @@ public class CompanyService {
     @RequestMapping(value = "/companies/", method = RequestMethod.POST)
     @ApiOperation(value = "create a new company", response = Company.class)
     @ApiResponses(value = { @ApiResponse(code = 400, message = "Invalid Input") })
-    public Company createCompany(Company company) {
+    public Company createCompany(@RequestBody Company company) {
         Company c = compMgr.createCompany(company);
         return c;
     }
@@ -51,7 +53,7 @@ public class CompanyService {
     @RequestMapping(value = "/companies/", method = RequestMethod.PUT)
     @ApiOperation(value = "Update a  company", response = Company.class)
     @ApiResponses(value = { @ApiResponse(code = 400, message = "Invalid Input") })
-    public Company updateCompany(Company company) {
+    public Company updateCompany(@RequestBody Company company) {
         Company c = compMgr.updateCompany(company);
         return c;
     }
@@ -63,5 +65,14 @@ public class CompanyService {
         compMgr.deleteCompany(id);
         return Response.status(Response.Status.OK)
             .build();
+    }
+
+    @RequestMapping(value = "/companies/{id}/users", method = RequestMethod.GET)
+    @ApiOperation(value = "Return employees of a company")
+    @ApiResponses(value = { @ApiResponse(code = 400, message = "Invalid Input") })
+    public List<UserModel> getAllEmployeesOfACompany(@PathVariable("id") int id) {
+        List<UserModel> listUsers = compMgr.getAllEmployeesOfACompany(id);
+
+        return listUsers;
     }
 }

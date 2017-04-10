@@ -6,6 +6,7 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,7 @@ public class UserService {
     @RequestMapping(value = "/users/", method = RequestMethod.POST)
     @ApiOperation(value = "Create a new user", response = User.class)
     @ApiResponses(value = { @ApiResponse(code = 400, message = "Invalid Input") })
-    public User createUser(User user) {
+    public User createUser(@RequestBody User user) {
         User u = userMgr.createUser(user);
         return u;
     }
@@ -51,7 +52,7 @@ public class UserService {
     @RequestMapping(value = "/users/", method = RequestMethod.PUT)
     @ApiOperation(value = "Update a user", response = User.class)
     @ApiResponses(value = { @ApiResponse(code = 400, message = "Invalid Input") })
-    public User updateUser(User user) {
+    public User updateUser(@RequestBody User user) {
         User u = userMgr.updateUser(user);
         return u;
     }
