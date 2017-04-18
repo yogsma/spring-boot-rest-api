@@ -16,6 +16,8 @@ To read more details step to use this repository and the guide to implement REST
 1. https://betterjavacode.com/2017/03/14/how-to-spring-boot-crud-rest-api/
 2. https://betterjavacode.com/2017/03/18/swagger-documentation-for-spring-boot-rest-api-part-ii/
 3. https://betterjavacode.com/2017/03/26/error-handling-and-logging-in-spring-boot-rest-api-part-iii/
+4. https://betterjavacode.com/2017/04/09/consuming-a-restful-webservice-part-iv/
+5. https://betterjavacode.com/2017/04/18/producing-and-consuming-soap-webservice-with-spring-boot-part-v/
 
 # To run the REST API using browser 
  1. http://localhost:8080/benefits/v1/users/ 
