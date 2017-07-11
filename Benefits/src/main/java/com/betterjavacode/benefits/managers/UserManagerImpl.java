@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.betterjavacode.benefits.entities.User;
+import com.betterjavacode.benefits.entities.UserProfile;
 import com.betterjavacode.benefits.interfaces.UserManager;
 import com.betterjavacode.benefits.repositories.UserRepository;
 import com.betterjavacode.benefits.utilities.InvalidRequestException;
@@ -36,8 +37,22 @@ public class UserManagerImpl implements UserManager {
 
     @Override
     public User updateUser(User u) {
-        // TODO Auto-generated method stub
-        return null;
+        LOGGER.info(" Enter >> updateUser() ");
+        User updateduser = null;
+        if (u != null) {
+            User user = userRepository.findOne(u.getId());
+            if (user == null) {
+                throw new InvalidRequestException(400, "User does not exist");
+            }
+            UserProfile newup = u.getUserprofile();
+            UserProfile oldup = user.getUserprofile();
+            newup.setId(oldup.getId());
+            updateduser = userRepository.save(u);
+        } else {
+            LOGGER.info(" Exit << updateUser() ");
+            throw new InvalidRequestException(400, "User is null");
+        }
+        return updateduser;
     }
 
     @Override

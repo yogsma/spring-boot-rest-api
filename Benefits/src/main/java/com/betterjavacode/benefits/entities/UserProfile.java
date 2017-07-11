@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "UserProfile")
 @Table(name = "userprofile")
 public class UserProfile implements Serializable {
@@ -22,6 +24,7 @@ public class UserProfile implements Serializable {
 
     }
 
+    @JsonIgnore
     @Id
     @GeneratedValue
     private int id;

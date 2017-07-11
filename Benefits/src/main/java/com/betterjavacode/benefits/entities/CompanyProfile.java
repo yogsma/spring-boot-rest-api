@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "CompanyProfile")
 @Table(name = "companyprofile")
 public class CompanyProfile implements Serializable {
@@ -17,10 +19,16 @@ public class CompanyProfile implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    public CompanyProfile() {
-
+    public CompanyProfile(int id) {
+        super();
+        this.id = id;
     }
 
+    public CompanyProfile() {
+        super();
+    }
+
+    @JsonIgnore
     @Id
     @GeneratedValue
     private int id;

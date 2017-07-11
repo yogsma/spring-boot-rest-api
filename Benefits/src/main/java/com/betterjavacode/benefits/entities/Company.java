@@ -22,8 +22,17 @@ public class Company implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    public Company() {
+    public Company(int id, String name, String type, String ein, CompanyProfile cp) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.ein = ein;
+        this.cp = cp;
+    }
 
+    public Company() {
+        super();
     }
 
     @Id

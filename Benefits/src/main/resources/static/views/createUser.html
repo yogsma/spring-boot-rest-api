@@ -1,0 +1,37 @@
+<div class="container" ng-controller="createUserCtrl">
+  <h1>User detail</h1>
+
+  <form novalidate="novalidate" class="form-horizontal">
+    <div class="control-group">
+      <label class="control-label" for="inputFirstName">First name:</label>
+
+      <div class="controls">
+        <input type="text" id="inputFirstName" ng-model="user.firstname"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputLastName">Last name:</label>
+
+      <div class="controls">
+        <input type="text" id="inputLastName" ng-model="user.lastname"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputJobTitle">Job Title:</label>
+      <div class="controls">
+        <input type="text" id="inputLastName" ng-model="user.jobtitle" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputMaritalStatus">Marital Status:</label>
+      <div class="controls">
+        <input type="text" id="inputLastName" ng-model="user.userprofile.maritalstatus" />
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">        
+        <a ng-click="createNewUser()" class="btn btn-small btn-primary">Create New User</a>
+      </div>
+    </div>
+  </form>
+</div>

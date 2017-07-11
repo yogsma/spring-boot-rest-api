@@ -1,0 +1,26 @@
+<div class="container" ng-controller="editCompanyCtrl">
+  <h1>Company detail</h1>
+
+  <form novalidate="novalidate" class="form-horizontal">
+    <div class="control-group">
+      <label class="control-label" for="inputFirstName">Name:</label>
+
+      <div class="controls">
+        <input type="text" id="inputName" ng-model="company.name" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputLastName">Type:</label>
+
+      <div class="controls">
+        <input type="text" id="inputType" ng-model="company.type"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <a ng-click="cancel()" class="btn btn-small">cancel</a>
+        <a ng-click="updateCompany()" class="btn btn-small btn-primary">update company</a>
+      </div>
+    </div>
+  </form>
+</div>

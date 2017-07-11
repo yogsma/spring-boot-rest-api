@@ -1,0 +1,22 @@
+<html ng-app="benefitApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Benefit Application</title>
+<script>document.write('<base href="' + document.location + '" />');</script>
+<link rel="stylesheet" href="/css/bootstrap.css" />
+<script src="https://code.angularjs.org/1.6.1/angular.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-resource.js"></script>
+<script type="text/javascript" src="./js/app.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+<p>Hello {{name}}!</p>
+<div>
+	<ul class="menu">        
+        <li><a href="listUser">user-list</a></li>
+        <li><a href="listCompany">company-list</a></li>        
+    </ul>
+    <div ng-view="ng-view"></div>
+</div>
+</body>
+</html>

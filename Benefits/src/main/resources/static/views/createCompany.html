@@ -1,0 +1,25 @@
+<div class="container" ng-controller="createCompanyCtrl">
+  <h1>Company detail</h1>
+
+  <form novalidate="novalidate" class="form-horizontal">
+    <div class="control-group">
+      <label class="control-label" for="inputFirstName">Name:</label>
+
+      <div class="controls">
+        <input type="text" id="inputName" ng-model="company.name"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputLastName">Type:</label>
+
+      <div class="controls">
+        <input type="text" id="inputType" ng-model="company.type"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">        
+        <a ng-click="createNewCompany()" class="btn btn-small btn-primary">Create New Company</a>
+      </div>
+    </div>
+  </form>
+</div>

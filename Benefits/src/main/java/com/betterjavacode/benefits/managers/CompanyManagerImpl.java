@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.betterjavacode.benefits.entities.Company;
 import com.betterjavacode.benefits.interfaces.CompanyManager;
+import com.betterjavacode.benefits.models.UserModel;
 import com.betterjavacode.benefits.repositories.CompanyRepository;
 import com.betterjavacode.benefits.utilities.InvalidRequestException;
 
@@ -40,6 +41,9 @@ public class CompanyManagerImpl implements CompanyManager {
         if (oldcompany == null) {
             throw new InvalidRequestException(400, "Company does not exist");
         }
+        company.getCp()
+            .setId(oldcompany.getCp()
+                .getId());
         Company c = companyRepository.save(company);
         LOGGER.info("Exit << updateCompany() ");
         return c;
@@ -76,6 +80,19 @@ public class CompanyManagerImpl implements CompanyManager {
         LOGGER.info(" Exit << deleteCompany() ");
         companyRepository.delete(guid);
 
+    }
+
+    @Override
+    public List<UserModel> getAllEmployeesOfACompany(int companyid) {
+        LOGGER.info(" Enter >> getAllEmployeesOfACompany() ");
+        Company c = companyRepository.findOne(companyid);
+        if (c == null) {
+            LOGGER.info(" Company not found");
+            throw new InvalidRequestException(400, "Company does not exist");
+        }
+
+        LOGGER.info(" Exit << getAllEmployeesOfACompany() ");
+        return null;
     }
 
 }
