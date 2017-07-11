@@ -18,6 +18,10 @@ To read more details step to use this repository and the guide to implement REST
 3. https://betterjavacode.com/2017/03/26/error-handling-and-logging-in-spring-boot-rest-api-part-iii/
 4. https://betterjavacode.com/2017/04/09/consuming-a-restful-webservice-part-iv/
 5. https://betterjavacode.com/2017/04/18/producing-and-consuming-soap-webservice-with-spring-boot-part-v/
+6. https://betterjavacode.com/2017/05/08/how-to-consume-oauth-secured-soap-web-service/
+7. https://betterjavacode.com/2017/05/21/handle-uncaught-exceptions-in-a-spring-boot-rest-api-part-vi/
+8. https://betterjavacode.com/2017/07/11/how-to-angularjs-user-interface-to-crud-spring-boot-rest-api/
+
 
 # To run the REST API using browser 
  1. http://localhost:8080/benefits/v1/users/ 
