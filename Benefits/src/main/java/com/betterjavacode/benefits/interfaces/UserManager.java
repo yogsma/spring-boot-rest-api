@@ -15,4 +15,8 @@ public interface UserManager {
     public List<User> getAllUsers();
 
     public void deleteUser(int id);
+
+    public User findUserByEmail(String email);
+
+    public User saveUser(User user);
 }

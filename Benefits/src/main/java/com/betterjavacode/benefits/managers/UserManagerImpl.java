@@ -1,32 +1,47 @@
 package com.betterjavacode.benefits.managers;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.betterjavacode.benefits.entities.Role;
 import com.betterjavacode.benefits.entities.User;
 import com.betterjavacode.benefits.entities.UserProfile;
 import com.betterjavacode.benefits.interfaces.UserManager;
+import com.betterjavacode.benefits.repositories.RoleRepository;
 import com.betterjavacode.benefits.repositories.UserRepository;
 import com.betterjavacode.benefits.utilities.InvalidRequestException;
 
 public class UserManagerImpl implements UserManager {
 
     public static final Logger LOGGER = LogManager.getLogger(UserManagerImpl.class);
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     private UserRepository userRepository;
+    private RoleRepository roleRepository;
 
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
+    @Autowired
+    public void setRoleRepository(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
+
     @Override
     public User createUser(User u) {
         LOGGER.info(" Enter >> createUser() ");
         if (u != null) {
-            User user = userRepository.save(u);
+            // User user = userRepository.save(u);
+            User user = saveUser(u);
             LOGGER.info(" Exit << createUser() ");
             return user;
         } else {
@@ -86,6 +101,22 @@ public class UserManagerImpl implements UserManager {
         }
         LOGGER.info(" Exit << deleteUser() ");
         userRepository.delete(user);
+    }
+
+    @Override
+    public User findUserByEmail(String email) {
+        return userRepository.findUserByEmail(email);
+    }
+
+    @Override
+    public User saveUser(User user) {
+        user.setPasswordHash(bCryptPasswordEncoder.encode(user.getPasswordHash()));
+        Role userRole = roleRepository.findByRole(user.getRoles()
+            .get(0)
+            .getRole());
+        user.setRoles(Arrays.asList(userRole));
+        User u = userRepository.save(user);
+        return u;
     }
 
 }

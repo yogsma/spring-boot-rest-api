@@ -19,9 +19,9 @@ import com.betterjavacode.benefits.interfaces.UserManager;
  *
  */
 @Controller
-public class MainController {
+public class LoginController {
 
-    public static final Logger LOGGER = LogManager.getLogger(MainController.class);
+    public static final Logger LOGGER = LogManager.getLogger(LoginController.class);
 
     @Autowired
     UserManager userManager;
@@ -31,16 +31,34 @@ public class MainController {
      * @param model
      * @return
      */
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String homepage(Model model) {
-        LOGGER.info(" Enter >> homepage() ");
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public String userpage(Model model) {
+        LOGGER.info(" Enter >> userpage() ");
         Authentication auth = SecurityContextHolder.getContext()
             .getAuthentication();
         String name = auth.getName();
         User user = userManager.findUserByEmail(name);
         model.addAttribute("name", user.getFirstname());
-        LOGGER.info(" Exit << homepage() ");
-        return "index";
+        model.addAttribute("userid", user.getId());
+        LOGGER.info(" Exit << userpage() ");
+        return "user";
     }
 
+    /**
+     * 
+     * @return
+     */
+    @RequestMapping(value = { "/login" })
+    public String login() {
+        return "login";
+    }
+
+    /**
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/403", method = RequestMethod.GET)
+    public String Error403() {
+        return "403";
+    }
 }

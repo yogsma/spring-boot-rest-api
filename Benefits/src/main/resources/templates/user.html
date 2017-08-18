@@ -10,12 +10,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-resource.js"></script>
 <script type="text/javascript" src="./js/app.js"></script>
 </head>
-<body ng-controller="MainCtrl">
-<p th:text="'Hello ' + ${name}"></p>
+<body ng-controller="UserCtrl">
+<p>Hello <p th:text="${name}"></p></p>
 <div>
-	<ul class="menu">        
-        <li><a href="listUser">user-list</a></li>
-        <li><a href="listCompany">company-list</a></li>        
+	<ul class="menu">                
+        <li><a th:href="@{'userProfile/' + ${userid}}">Profile</a></li>             
     </ul>
     <div ng-view="ng-view"></div>
 </div>
@@ -23,6 +22,6 @@
     	<div class="controls">
     		<a ng-click="logout()" class="btn btn-small">Logout</a>    		
     	</div>
-</div>
+ </div>
 </body>
 </html>
