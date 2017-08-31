@@ -21,6 +21,8 @@ To read more details step to use this repository and the guide to implement REST
 6. https://betterjavacode.com/2017/05/08/how-to-consume-oauth-secured-soap-web-service/
 7. https://betterjavacode.com/2017/05/21/handle-uncaught-exceptions-in-a-spring-boot-rest-api-part-vi/
 8. https://betterjavacode.com/2017/07/11/how-to-angularjs-user-interface-to-crud-spring-boot-rest-api/
+9. https://betterjavacode.com/2017/08/17/how-to-use-spring-boot-security-in-web-application-part-viii/
+10. https://betterjavacode.com/2017/08/31/how-to-deploy-spring-boot-application-on-docker-part-ix/
 
 
 # To run the REST API using browser 
